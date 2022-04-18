@@ -1,4 +1,4 @@
-# Next.js Blog Theme Designed by [Bejamas](https://bejamas.io)
+![Netlify Next.js Blog Template designed by Bejamas](github-banner.svg)
 
 [![Deploy to Netlify Button](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/netlify-templates/nextjs-blog-theme)
 
@@ -9,15 +9,23 @@ A customizable blog starter using:
 - Built-in [MDX](https://mdxjs.com/) v1 support
 - Includes modern design with dark & light themes
 
+> 🎉 We’re really excited about the Bejamas + Netlify collaboration and we were going to celebrate it with some swag, but we realized we could put that money into supporting OSS and our ecosystem even more! After all, who needs another t-shirt or sticker?!
+>
+> [Click this link](https://oss-form.netlify.app/) to vote for your favorite Open Source project!
+
 ![Preview of blog theme. Author named Jay Doe and blog's name is "Next.js Blog Theme" with one blog post](nextjs-blog-theme-preview.png)
 
 [Take a gander at the demo.](https://bejamas-nextjs-blog.netlify.app)
 
-### Getting Started
+[Click here to watch the template walkthrough!](https://www.youtube.com/watch?v=U2eTCO_xiHc)
+
+## Getting Started
+
+---
 
 You can get started with this project in two ways: locally or using the [setup wizard](https://nextjs-wizard.netlify.app/).
 
-#### Setting Up Locally
+### Setting Up Locally
 
 If you're doing it locally, start with clicking the [use this template](https://github.com/netlify-templates/nextjs-blog-theme/generate) button on GitHub. This will create a new repository with this template's files on your GitHub account. Once that is done, clone your new repository and navigate to it in your terminal.
 
@@ -35,7 +43,7 @@ yarn run dev
 
 Open your browser and visit <http://localhost:3000>, your project should be running!
 
-#### Using the Setup Wizard
+### Using the Setup Wizard
 
 ![Preview of Setup Wizard showing the initial page of a setup form](nextjs-setup-wizard.png)
 
@@ -46,21 +54,25 @@ Through the [setup wizard](https://nextjs-wizard.netlify.app/), you can create y
 The config is based on environment variables to make it easy to integrate with any Jamstack platform, like Netlify.
 
 Here are the variables you can edit:
+| Variable | Description | Options
+| --- | --- | --- |
+| `BLOG_NAME` | the name of your blog, displayed below the avatar ||
+| `BLOG_TITLE` | the main header (`h1`) on the home page ||
+| `BLOG_FOOTER_TEXT`| the text in the footer ||
+| `BLOG_THEME` | the theme to pass to Tailwind | default |
+| `BLOG_FONT_HEADINGS` | the font-family for all HTML headings, from `h1` to `h6`| sans-serif (default), serif, monospace|
+| `BLOG_FONT_PARAGRAPHS` | the font-family for all other HTML elements | sans-serif (default), serif, monospace|
 
-- `BLOG_NAME` - that's the name of your blog and will be displayed below the avatar.
-- `BLOG_TITLE` - the main header (`h1`) on the home page, this can be a slogan.
-- `BLOG_FOOTER_TEXT` - the text in the footer, usually copyright info.
-- `BLOG_THEME`
-- `BLOG_FONT_HEADINGS` - the font-family for all HTML headings, from `h1` to `h6`. The value can be one of those:
-  - `sans-serif` (selected by default)
-  - `serif`
-  - `monospace`
-- `BLOG_FONT_PARAGRAPHS` - the font-family for all other HTML elements. The value can be one of those:
-  - `sans-serif` (selected by default)
-  - `serif`
-  - `monospace`
+All of the env variables can be configured through the [Wizard](https://nextjs-wizard.netlify.app/) or through setting the project's environment variables. You can do this in your Netlify dashaboard (Site settings/Build & deploy/Environment/Environment variables).
 
-All of the env variables can be configured through the [Wizard](https://nextjs-wizard.netlify.app/).
+https://user-images.githubusercontent.com/3611928/153997545-6dcdeef0-e570-49e7-93d6-ce0d393d16c9.mp4
+
+[alt: video walkthrough of editing env vars]
+
+If setting an environment variable isn't your cup of tea, the defaults can be changed in [`utils/global-data.js`](/utils/global-data.js). You can also remove the variables and hard code blog information where these variables are used in the code base.
+
+- `BLOG_THEME, BLOG_FONT_HEADINGS, & BLOG_FONT_PARAGRAPHS` are used in [`tailwind-preset.js`](tailwind-preset.js)
+- `BLOG_NAME, BLOG_TITLE, BLOG_FOOTER_TEXT` are used in [`pages/index.js`](pages/index.js) & [`pages/posts/[slug].js`](pages/posts/[slug].js) through the `globalData` object.
 
 ## Adding new posts
 
@@ -71,4 +83,3 @@ Since the posts are written in `MDX` format you can pass props and components. T
 https://user-images.githubusercontent.com/3611928/152727802-102ec296-41c8-446d-93ed-922d11187073.mp4
 
 [alt: video walkthrough of adding a new blog post]
-
