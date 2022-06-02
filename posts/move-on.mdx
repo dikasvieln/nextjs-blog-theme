@@ -1,0 +1,28 @@
+---
+title: Knowing K9s dashboard alternative using KDash
+description: An introduction about terminal based UI to interact with your K8s cluster
+date: June 2 2022
+---
+
+## Intro
+We know that when we are built an image and creating a cluster in k8s, we often use `kubectl get po`cli to check our pods if it is already running properly or not. And what if there is a terminal based UI to manage your list pods in realtime that easily to use. Yes, I tell you about the k9s, It's already published as an open-source project for monitoring the Kubernetes cluster and providing shortcut commands to interact with observed resources.
+
+But there is an alternative to k9s and it was KDash, A simple monitoring tool for k8s cluster. The terminal UI was more simple than the k9s open source project. And it was built-in with rust programming language.
+
+## Feature UI
+here is below some ui 
+
+<img src="https://raw.githubusercontent.com/kdash-rs/kdash/main/screenshots/overview.png" alt="kdash dashboard" />"
+
+KDash only offers a view of the most used resources with a focus on speed and UX. The UI means to be more user-friendly and easier to navigate with contextual help everywhere and tab a system to easily switch between different resources.
+
+for more detail about k9s dashboard you can follow this [link](https://k9scli.io/)
+
+KDash can use a shortcut to navigate your cluster config without typing `kubectl` first. 
+You can describe your resources manifest file or copy the output that you want using available shortcut key.
+From navigation pane you can switch between layer selection from context info into namespace that are available to you.
+Probably there is two themes (dark theme/white theme) which can be selected as your preferences.
+
+Hope this article can be useful. And as usual, if there is any word or grammar that might find you not quite right. You can email me at aulia.dika@aleph-labs.com. Last but not least, thank you for reading my article. 
+
+[source 1](https://medium.com/flant-com/k9s-terminal-ui-for-kubernetes-aeead8b0303f)  
