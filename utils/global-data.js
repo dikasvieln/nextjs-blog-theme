@@ -4,10 +4,10 @@ export const getGlobalData = () => {
     : 'Aulia Dika';
   const blogTitle = process.env.BLOG_TITLE
     ? decodeURI(process.env.BLOG_TITLE)
-    : 'Blogs';
+    : 'Dev Blogs';
   const footerText = process.env.BLOG_FOOTER_TEXT
     ? decodeURI(process.env.BLOG_FOOTER_TEXT)
-    : 'All rights reserved.';
+    : '2022 © All rights reserved.';
 
   return {
     name,
