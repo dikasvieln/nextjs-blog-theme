@@ -1,0 +1,57 @@
+---
+title: Creating CSS Stylesheet with Stylus CSS Preprocessing
+description: "Stylus generator to create stylesheet css file"
+date: August 02 2022
+---
+
+## Intro
+How we built the website nowadays was much more different from the past couple of years. We as developer knowing about the basic ingredients to built the web apps or website using HTML, CSS and javascript. And as the new practical development comes, there are many task automation and cli generator to create css file much more simpler. For an example, SCSS(Syntactical Cascading Style Sheet) was more popular before Stylus arrive as a new alternative css preprocessing generator.
+
+Stylus was created by Node JS contributor and creator of LUA programming language. Its designed is influenced by SASS and LESS. And it's regarded as the fourth most used CSS Preprocessing syntax. The syntax was synonymously like _jade_ or as it called _pug_.
+
+## Feature
+The stylus was dynamic preprocessing language for CSS. And it's an open-source pre-processor language 
+but that's not only open source
+
+The Stylus give you offer simplistic syntax to create css from ground.
+some example feature that my favorite is mixins.
+```
+function_name($s) 
+	-webkit-reflect: above $s
+
+```
+the above code was to built customize function mixins for css reflect that just only provide on chrome web browser.
+And as you may see from the above code, there is no colons/semicolons or curly braces which is the syntax looks like efficient and robust.
+
+And not only that, there is over 60 Color Functions that might be useful for you to use. 
+Such as list/Hash Functions ex: 
+```
+// pop(expr)
+
+nums = 	4 5 3 2 1
+num = pop(nums)
+
+```
+
+One of many features may as the same as sass lang was rest parameter. The syntax form of _name..._ are the params which consume that remaining arguments passed to a mixin or function.
+Those arguments will be useful when utilizing(for example) the implicit function call likes _-webkit-_ or _-moz-_.
+
+## How to use
+Make sure that you have already installed new version of NODE JS. After that, you should initiate new starter project.
+As the package based on NPM. you should follow this command 
+```
+npm init 
+npm i stylus
+```
+After that you should create a script file to run through your _.styl_ into _.css_ file with watch.
+
+
+
+## Conclusion
+There has been many benefit for using CSS Preprocessor wether using SCSS/SASS or LESS. The way developer it enhance or speed their practical development was probably could be eficient and robust with using CSS Preprocessor. If you want to know more detail about CSS Preprocessing you can read on smashingmagazine or tutsplus article. 
+And if there is any grammar that finds you not correct, please reach me out. I'll be glad to hear any suggestion or recommendation from you.
+As always many thanks for read my article. Hope you are stay healthy and stay safe. GBU
+
+
+(source 1)[https://en.wikipedia.org/wiki/Stylus_%28stylesheet_language%29]  
+(source 2)[https://stylus-lang.com/]
