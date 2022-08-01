@@ -2,7 +2,7 @@ import * as react from 'react';
 import { DiscussionEmbed } from 'disqus-react';
 
 const DisqusComments = ({ post }) => {
-  const disqusShortname = 'https-amdevblog-netlify-app'
+  const disqusShortname = 'new-amdevblog'
 
   const disqusConfig = {
     url: "",

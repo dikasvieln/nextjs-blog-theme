@@ -15,6 +15,7 @@ import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import Layout, { GradientBackground } from '../../components/Layout';
 import SEO from '../../components/SEO';
+import { DiscussionEmbed } from 'disqus-react';
 import { CodePen } from 'mdx-embed';// Custom components/renderers to pass to MDX.
 // Since the MDX files aren't loaded by webpack, they have no knowledge of how
 // to handle import statements. Instead, you must include components in scope
@@ -56,6 +57,26 @@ export default function PostPage({
             <MDXRemote {...source} components={components} />
           </article>
         </main>
+        {/* <div className='flex justify-between items-center'> */}
+          {/* <DiscussionEmbed 
+              shortname={"new-amdevblog"}
+              config={{
+                url: "this page url",
+                identifier: "u",
+                title: `${frontMatter.title}`
+              }
+            /> */}
+        {/* </div> */}
+        <div className=''>
+          <DiscussionEmbed
+            shortname="new-amdevblog"
+            config={{
+              url: "https://new-amdevblog.com/posts/[slug]",
+              // identifier: "u",
+              title: `${frontMatter.title}`,
+            }}
+          />
+        </div>
         <div className="grid md:grid-cols-2 lg:-mx-24 mt-12">
           {prevPost && (
             <Link href={`/posts/${prevPost.slug}`}>
