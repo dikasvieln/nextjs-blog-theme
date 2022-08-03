@@ -36,6 +36,8 @@ export const getPosts = () => {
     };
   });
 
+  console.log(postFilePaths);
+
   posts = sortPostsByDate(posts);
 
   return posts;

@@ -36,6 +36,7 @@ export default function PostPage({
   nextPost,
   globalData,
 }) {
+  // console.log('post', post.id);
   return (
     <Layout>
       <SEO
@@ -57,22 +58,13 @@ export default function PostPage({
             <MDXRemote {...source} components={components} />
           </article>
         </main>
-        {/* <div className='flex justify-between items-center'> */}
-          {/* <DiscussionEmbed 
-              shortname={"new-amdevblog"}
-              config={{
-                url: "this page url",
-                identifier: "u",
-                title: `${frontMatter.title}`
-              }
-            /> */}
-        {/* </div> */}
+      
         <div className=''>
           <DiscussionEmbed
             shortname="new-amdevblog"
             config={{
               url: "https://new-amdevblog.com/posts/[slug]",
-              // identifier: "u",
+              identifier: `${frontMatter.slug}`,
               title: `${frontMatter.title}`,
             }}
           />
