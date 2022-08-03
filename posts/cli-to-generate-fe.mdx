@@ -1,0 +1,78 @@
+---
+title: "CLI Customization for FE Development"
+description: "An intro about OCLIF"
+date: "27 July 2022"
+---
+
+## intro
+When we first initiate or start the project for making the apps or web apps, an experienced developer often uses CLI (Command Line Interface).
+CLI means Command Line Interface. If you want to be an experienced developer I recommend using CLI to start a new project or make a new feature. 
+
+One of them is OCLIF. OCLIF stands for Open Code Life Cycle Framework.
+When you first time using OCLIF, you might to know how system processing in CLI. The system will firstly parse the command line arguments. Then it will check the command name. If the command name is correct, it will check the command arguments. And If the command arguments are correct for another option, it will execute the command.
+
+## OCLIF CLI
+The OCLIf was provided a customized cli for FE Dev. It was a lot of feature in it. There are examples that use OCLIF like Svelte-kit, Heroku, etc. All you need is the LTS Nodejs version that has been installed inside your PC.
+In OCLIF everything is customizable, you can arrange your command interface into a list of optional commands or even customize your own helper generation. Like the slogan of CLI means, It's a platform to build upon that provides smart defaults without locking you into any specific tools or behavior.
+
+## OCLIF Feature
+- Flag/Argument parsing  
+None of the CLI frameworks can't work without a flag parser. The custom flag built by OCLIF was a result of experiments that we feel consistently handles user input flexible enough.
+- Configurable Topic Separator  
+The OCLIF is built-in with customized separator command which is by default the topic commands will be separated with colons. But however, you have the option to use spaces if you prefer. by example 
+```
+mycommand init another-command
+```
+- Super Speed cli  
+The speed of OCLIF when we run the command is almost nothing. It's because the cli itself required a few dependencies. So, even though there is a lot of commands that are generated it should be the same as a single command generated. 
+- Testing Helper  
+One of the unique features of OCLIF was the commands will generate a testing helper automatically.
+
+## RAFTEL
+From the OCLIF, I built practical cli as an example, and the source [https://github.com/AulsD/cli-rustvelt](source)
+The repos contain a CLI to generate FE starter kit which is will reproduce list packages and mix up folder between rust and svelte kit. 
+May in the future, there is an update feature that implements rust with react or vue. 
+data
+rustvelt cli list of package:
+- enquirer
+- express
+- oclif
+- @oclif/command
+- @oclif/config
+- @oclif/plugin-help
+- cosmiconfig
+- debug
+- globby
+- jest
+- jest-dir
+- tslib
+- @oclif/dev-cli
+- @oclif/test
+- @types/jest
+- @types/node
+- ts-node
+- typescript
+
+## How to use rustvelt CLI
+The first thing to do is make sure that you have already installed a new version of NodeJS. 
+And you should follow along below commands: 
+```
+npm -g i rustvelt
+npx rustvelt 
+```
+
+You'll prompt out the cli with a statements 
+```
+What is your folder name?
+```
+
+It will asking about your customize boilerplate FE cli. 
+
+## Conclusion
+OCLIF (open code life cycle framework) was one of many cli generators that makes developers easily use and create a system customizable command line interface. Which makes your custom CLI more robust to build an extensive cli. I hope this article makes you gain more knowledge about what is command line interface. If there is any bad grammar or bad sentences that not correctly feels right to you. Please give me some advice or any suggestion. I'm available anytime to hear from you. 
+Stay curious and stay healthy. Last but not least, thanks to read my blog. GBU.
+
+[source1](https://oclif.io/docs/introduction)  
+[source2](https://medium.com/the-z/getting-started-with-oclif-by-creating-a-todo-cli-app-b3a2649adbcf)  
+[source3](https://medium.com/swlh/how-to-have-your-personal-cli-with-oclif-4d72939cd32c)  
+[source4](https://egghead.io/lessons/javascript-create-a-hybrid-single-multi-command-node-js-cli-with-oclif-and-typescript)
