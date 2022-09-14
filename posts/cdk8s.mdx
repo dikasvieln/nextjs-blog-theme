@@ -1,0 +1,125 @@
+---
+title: CDK8s for cloud kit development 
+description: An Alternative ways to build your manifest yaml file 
+date: September 15 2022
+---
+
+
+Hello folks, we will further discuss an alternative way to deploy your final apps into an instance of a cloud server by using k8s cluster engine. But instead you are using your yaml manifest file, you will build your custom yaml file by using an SDK third party. One thing that you might find about CDK8s is  a software development kit framework for defining K8s apps and reusable abstractions using familiar programming language and rich object-oriented APIs.
+
+CDK8s was supposedly to make sure your deployment manifest file is valid, reusable and easy to maintain. With support by 4 languages which is python, typescript, java and rust, you should be able to build your custome template yaml file as the same as you are develop your apps from the beginning.
+
+## How to works
+Based on generated file, the root of the trees is a Constructor named _App_. Within the App, you can defined any number of charts( Classes that extend the _Chart_ class). Each chart synthesized a separated K8s manifest file and eventually which represent any K8s resource, such as Pod, Service, Deployment and ReplicaSet. 
+
+
+## Example 
+
+Based on how cdk8s can be works for any cluster and makes an imperative approach to declarative state which as an developer you can probably enjoy the expresiveness of simpolicity of imperative programming.
+
+Here is below how to define k8s from cdk8s script.
+
+```
+import { Construct } from 'constructs';
+import { App, Chart, ChartProps } from 'cdk8s';
+import {IntOrString, KubeDeployment, KubeService} from './imports/k8s';
+
+export class CovYaml extends Chart {
+  constructor(scope: Construct, id: string, props: ChartProps = { }) {
+    super(scope, id, props);
+
+    const label = { app: 'cov-app' }
+    // define resources here
+
+    new KubeService(this, 'service', {
+      spec: {
+        type: 'ClusterIP',
+        ports: [ { port: 3000, targetPort: IntOrString.fromNumber(3000) } ],
+        selector: label
+      }
+    });
+
+    new KubeDeployment(this, 'deployment', {
+      spec: {
+        replicas: 2,
+        selector: {
+          matchLabels: label
+        },
+        template: {
+          metadata: { labels : label},
+          spec: {
+            containers: [
+              {
+                name: 'cov-app',
+                image: 'cov-app:1.0.0',
+                imagePullPolicy: 'Never',
+                ports: [ { containerPort: 3000 } ],
+              }
+            ]
+          }
+        }
+      }
+    })
+
+  }
+}
+
+const app = new App();
+new CovYaml(app, 'cov');
+app.synth();
+```
+
+After build your own custome scripts, it should generate the yaml file like these below.
+
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: cov-service-c87c1d6b
+spec:
+  ports:
+    - port: 3000
+      targetPort: 3000
+  selector:
+    app: cov-app
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cov-deployment-c80cb48c
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cov-app
+  template:
+    metadata:
+      labels:
+        app: cov-app
+    spec:
+      containers:
+        - image: cov-app:1.0.0
+          imagePullPolicy: Never
+          name: cov-app
+          ports:
+            - containerPort: 3000
+```
+
+And you can apply it from dist folder after build has done.
+the service and deployment should be created after that.
+```
+kubeclt apply -f dist/cov.k8s.yaml
+service/cov-service-23e79b52 created
+deployment.apps/cov-deployment-8b2b7b76 created
+```
+
+# Conclusion
+
+I hope from this article you should sense the potential of imperative way to build yaml file using one of AWS open source project. To find more the detail how to use cdk8s more deeper such as abstraction layers or high-level Construct library, you can follow the link from the source below.
+
+If there is any recommendation about paper or any project that comes with cdk8s, I would be glad and love to support your project. And last but not least thank you for read my article. GBU
+
+Source  
+[source 1](https://cdk8s.io/docs/latest/#how-does-it-work)  
+[source 2](https://aws.amazon.com/blogs/containers/introducing-cdk-for-kubernetes/) . 
