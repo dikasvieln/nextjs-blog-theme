@@ -5,19 +5,18 @@ date: September 15 2022
 ---
 
 
-Hello folks, we will further discuss an alternative way to deploy your final apps into an instance of a cloud server by using k8s cluster engine. But instead you are using your yaml manifest file, you will build your custom yaml file by using an SDK third party. One thing that you might find about CDK8s is  a software development kit framework for defining K8s apps and reusable abstractions using familiar programming language and rich object-oriented APIs.
+Hello folks, we will further discuss an alternative way to deploy your final apps into an instance of a cloud server by using the k8s cluster engine. But instead, you are using your YAML manifest file, you will build your custom YAML file by using an SDK third party. One thing that you might find about CDK8s is a software development kit framework for defining K8s apps and reusable abstractions using familiar programming languages and rich object-oriented APIs.
 
-CDK8s was supposedly to make sure your deployment manifest file is valid, reusable and easy to maintain. With support by 4 languages which is python, typescript, java and rust, you should be able to build your custome template yaml file as the same as you are develop your apps from the beginning.
+CDK8s was supposed to make sure your deployment manifest file is valid, reusable, and easy to maintain. With support from 4 languages which is python, typescript, java, and rust, you should be able to build your custom template YAML file the same as you are developing your apps from the beginning.
 
 ## How to works
-Based on generated file, the root of the trees is a Constructor named _App_. Within the App, you can defined any number of charts( Classes that extend the _Chart_ class). Each chart synthesized a separated K8s manifest file and eventually which represent any K8s resource, such as Pod, Service, Deployment and ReplicaSet. 
-
+Based on generated file, the root of the trees is a Constructor named _App_. Within the App, you can define any number of charts( Classes that extend the _Chart_ class). Each chart synthesized a separated K8s manifest file and eventually represent any K8s resource, such as Pod, Service, Deployment, and ReplicaSet. 
 
 ## Example 
 
-Based on how cdk8s can be works for any cluster and makes an imperative approach to declarative state which as an developer you can probably enjoy the expresiveness of simpolicity of imperative programming.
+Based on how cdk8s can work for any cluster and makes an imperative approach to the declarative state as a developer you can probably enjoy the expressiveness of simplicity of imperative programming.
 
-Here is below how to define k8s from cdk8s script.
+Here is below how to define k8s from the cdk8s script.
 
 ```
 import { Construct } from 'constructs';
@@ -69,7 +68,7 @@ new CovYaml(app, 'cov');
 app.synth();
 ```
 
-After build your own custome scripts, it should generate the yaml file like these below.
+After building your own custom scripts, it should generate the YAML file like these below.
 
 ```
 apiVersion: v1
@@ -106,8 +105,9 @@ spec:
             - containerPort: 3000
 ```
 
-And you can apply it from dist folder after build has done.
+And you can apply it from the dist folder after the build has been done.
 the service and deployment should be created after that.
+
 ```
 kubeclt apply -f dist/cov.k8s.yaml
 service/cov-service-23e79b52 created
@@ -116,9 +116,9 @@ deployment.apps/cov-deployment-8b2b7b76 created
 
 # Conclusion
 
-I hope from this article you should sense the potential of imperative way to build yaml file using one of AWS open source project. To find more the detail how to use cdk8s more deeper such as abstraction layers or high-level Construct library, you can follow the link from the source below.
+I hope from this article you should sense the potential of an imperative way to build a YAML file using one of the AWS open source projects. To find more detail on how to use cdk8s deeper such as abstraction layers or high-level Construct library, you can follow the link from the source below.
 
-If there is any recommendation about paper or any project that comes with cdk8s, I would be glad and love to support your project. And last but not least thank you for read my article. GBU
+If there is any recommendation about the paper or any project that comes with cdk8s, I would be glad and love to support your project. And last but not least thank you for reading my article. GBU
 
 Source  
 [source 1](https://cdk8s.io/docs/latest/#how-does-it-work)  

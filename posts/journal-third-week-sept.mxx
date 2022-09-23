@@ -1,0 +1,9 @@
+---
+title: GitOps tools
+description: 'a little bit sneak peak about gitops tools'
+date: 25 September 2022
+---
+
+How to be good and better at shipping a new software or an app, It's all about how we can handle CI/CD schema and planning for strategy deployment.
+From my last article I did discuss about how we create our custom manifest file using CDK8s. 
+
