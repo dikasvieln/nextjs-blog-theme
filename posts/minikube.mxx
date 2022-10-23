@@ -8,7 +8,7 @@ As part of Developer Operation(Devops) tools, one of common tools that used for 
 
 #describe docker
 
-In many cases docker was built with golang programming language. And there is many feature that you can use, one of a new feature was Docker Kubernetes.
+The based core of Docker was built with golang programming language. And there is many feature that you can use, one of a new feature was Docker Kubernetes.
 You can find these feature if you are installing docker desktop in version 1.20+. 
 
 
