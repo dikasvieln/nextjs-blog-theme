@@ -1,0 +1,41 @@
+---
+title: Shell Scripting
+description: "Intro your homemade shell script"
+date: April 16 2023
+---
+
+Hi, It's been long time that I haven't post an article in this blog. So, this time I'll share to you some basic of shell scripting that you might like. Anyway, shell scripting or bash script was mean for linux admin or devops in some organization. But, I think as for nowadays, shell scripts are like common progamming language out there such as golang, c++ or python. Instead, being depend on what kind script to run, As experianced dev or programmer we probably should know some basic of shell script commands.
+
+## Shell Script Definition
+Based on wiki article, shell script is a computer program designed to be run by a Unix shell. The various dialects of shell scripts are considered to be scripting language.
+
+Types of shell script in UNIX-like system was probably various like zsh, fishell, etc. You can configure by your own preferences but just like any other basic BASH
+
+## some example of shell script
+
+A typical shell script usually start with 
+```
+#!/usr/bin/env bash
+```
+So, that the file can notice this was a shell scripting language.
+In other way, you can made scripts command for unzipping the tgz/zip file. Here is below the example script
+```
+#!/usr/bin/env bash 
+echo "unzipping tar file"
+case "$1" in 
+  *.tar|*.tgz) tar -xzvf "$1";
+  *.gz) gunzip -k "$1";
+  *.zip) unzip -v "$1";
+  *)
+    echo "Cannot extract $1"
+    exit 1
+  ;;
+esac
+```
+
+As for me, shell scripts and bash command are really important to know for any Software Engineer/Developer that basically know how to crafting their own starter template. And it will make as sidekick scripting before your own primary language. 
+
+If you want to know fast about shell script I'll recommend to access bash script cheatsheet or if you want to know more and sharpening your knowledge than I prefer you go to Udemy course about shell scripting or read an article in freecodecamp.
+
+Thanks for reading my article. And next week I'll further discuss about some CLI with another programming language beside shell.
+
